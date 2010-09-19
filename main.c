@@ -3,7 +3,7 @@
 #include "linkedlist.h"
 
 int main(void){
-  List * list = empty_list();
+  List * list = emptylist();
   add(1, list);
   add(20, list);
   add(2, list);

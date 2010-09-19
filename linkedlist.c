@@ -1,15 +1,15 @@
 #include "linkedlist.h"
 
-Node * create_node(int data);
+Node * createnode(int data);
 
-Node * create_node(int data){
+Node * createnode(int data){
   Node * newNode = malloc(sizeof(Node));
   newNode->data = data;
   newNode->next = NULL;
   return newNode;
 }
 
-List * empty_list(){
+List * emptylist(){
   List * list = malloc(sizeof(List));
   list->head = NULL;
   return list;
@@ -29,14 +29,14 @@ void display(List * list) {
 void add(int data, List * list){
   Node * current = NULL;
   if(list->head == NULL){
-    list->head = create_node(data);
+    list->head = createnode(data);
   }
   else {
     current = list->head; 
     while (current->next!=NULL){
       current = current->next;
     }
-    current->next = create_node(data);
+    current->next = createnode(data);
   }
 }
 

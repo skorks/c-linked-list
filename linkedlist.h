@@ -13,8 +13,7 @@ typedef struct list {
   Node * head; 
 } List;
 
-List * empty_list();
-Node * create_node(int data);
+List * emptylist();
 void add(int data, List * list);
 void delete(int data, List * list);
 void display(List * list);
