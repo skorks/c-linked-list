@@ -1,0 +1,6 @@
+To compile:
+  make
+To run:
+  ./list
+To check for memory leaks (this will attempt to run with valgrind):
+  make leaks

@@ -1,2 +1,4 @@
 list
 tags
+*.o
+*.gch
