@@ -1,16 +1,33 @@
+#include <stdio.h>
+#include <stdlib.h>
 #include "linkedlist.h"
+
+struct node {
+  int data;
+  struct node * next;
+};
+
+struct list {
+  Node * head; 
+};
 
 Node * createnode(int data);
 
 Node * createnode(int data){
   Node * newNode = malloc(sizeof(Node));
+  if (!newNode) {
+    return NULL;
+  }
   newNode->data = data;
   newNode->next = NULL;
   return newNode;
 }
 
-List * emptylist(){
+List * makelist(){
   List * list = malloc(sizeof(List));
+  if (!list) {
+    return NULL;
+  }
   list->head = NULL;
   return list;
 }
@@ -19,11 +36,10 @@ void display(List * list) {
   Node * current = list->head;
   if(list->head == NULL) 
     return;
-  while(current->next != NULL){
-    printf("%d,", current->data);
-    current = current->next;
+  
+  for(; current != NULL; current = current->next) {
+    printf("%d\n", current->data);
   }
-  printf("%d\n", current->data); 
 }
 
 void add(int data, List * list){
