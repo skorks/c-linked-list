@@ -11,16 +11,16 @@ int main(void){
   add(8, list);
   add(9, list);
   add(13, list);
-  display(list);
-  delete(2, list);
-  display(list);
-  delete(1, list);
-  display(list);
-  delete(20, list);
-  display(list);
-  reverse(list);
-  printf("Reversed: ");
-  display(list);
-  destroy(list);
+  ldisplay(list);
+  ldelete(2, list);
+  ldisplay(list);
+  ldelete(1, list);
+  ldisplay(list);
+  ldelete(20, list);
+  ldisplay(list);
+  lreverse(list);
+  printf("reversed: ");
+  ldisplay(list);
+  ldestroy(list);
   return 0;
 }

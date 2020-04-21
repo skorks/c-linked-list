@@ -32,7 +32,7 @@ List * makelist(){
   return list;
 }
 
-void display(List * list) {
+void ldisplay(List * list) {
   Node * current = list->head;
   if(list->head == NULL) 
     return;
@@ -56,7 +56,7 @@ void add(int data, List * list){
   }
 }
 
-void delete(int data, List * list){
+void ldelete(int data, List * list){
   Node * current = list->head;            
   Node * previous = current;           
   while(current != NULL){           
@@ -72,7 +72,7 @@ void delete(int data, List * list){
   }                                 
 }                                   
 
-void reverse(List * list){
+void lreverse(List* list){
   Node * reversed = NULL;
   Node * current = list->head;
   Node * temp = NULL;
@@ -85,7 +85,7 @@ void reverse(List * list){
   list->head = reversed;
 }
 
-void destroy(List * list){
+void ldestroy(List * list){
   Node * current = list->head;
   Node * next = current;
   while(current != NULL){
