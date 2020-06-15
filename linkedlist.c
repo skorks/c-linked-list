@@ -102,17 +102,21 @@ void delete(int data, List * list){
 }
 
 
+/**
+ * This function reverses the given linked list.
+ * The function does not do anything if the linked list passed in as the argument is empty.
+ * */
 void reverse(List * list){
-  Node * reversed = NULL;
+  Node * previous = NULL;
   Node * current = list->head;
   Node * temp = NULL;
   while(current != NULL){
-    temp = current;
-    current = current->next;
-    temp->next = reversed;
-    reversed = temp;
+    temp = current->next;
+    current->next = previous;
+    previous = current;
+    current = temp;
   }
-  list->head = reversed;
+  list->head = previous;
 }
 
 
