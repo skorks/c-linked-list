@@ -1,6 +1,11 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "linkedlist.h"
+#include <stddef.h>
+
+#ifndef LINKED_HEADER
+    #define LINKED_HEADER
+    #include "linkedlist.h"
+#endif
 
 int main(void){
   List * list = makelist();
