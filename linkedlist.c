@@ -87,14 +87,14 @@ void delete(int data, List * list){
     if(finder->data == data){
       Node * temp = finder->next;  // temp points to the next node
 
-      if(temp != NULL){ // If the node to delete is the first node or somewhere in-between in the linked list
+      if(temp != NULL){  // If the node to delete is the first node or somewhere in-between in the linked list
         finder->data = temp->data;  // Copying the data from the next node to the current node
         finder->next = temp->next;  // Setting the next of the current node to the next value of the next node
         free(temp);
         temp = NULL;  // To avoid dangling pointers
-      } else { // If the node to delete is the last node in the linked list
+      } else {  // If the node to delete is the last node in the linked list
         free(finder);
-        finder = NULL; // To avoid dangling pointers
+        finder = NULL;  // To avoid dangling pointers
       }
     }
     finder = finder->next;
@@ -120,13 +120,18 @@ void reverse(List * list){
 }
 
 
+/**
+ * This function destroys the linked list passed in as the argument.
+ * */
 void destroy(List * list){
   Node * current = list->head;
-  Node * next = current;
+  Node * next = NULL;
+
   while(current != NULL){
     next = current->next;
     free(current);
     current = next;
   }
   free(list);
+  list = NULL;  // To avoid dangling pointers
 }
