@@ -1,8 +1,15 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#include "linkedlist_struct.h"
-#include "linkedlist.h"
+#ifndef LINKED_STRUCT_HEADER
+    #define LINKED_STRUCT_HEADER
+    #include "linkedlist_struct.h"
+#endif
+
+#ifndef LINKED_HEADER
+    #define LINKED_HEADER
+    #include "linkedlist.h"
+#endif
 
 
 Node * createnode(int data){

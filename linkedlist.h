@@ -1,7 +1,10 @@
 #ifndef LINKEDLIST_HEADER
 #define LINKEDLIST_HEADER
 
-#include "linkedlist_struct.h"
+#ifndef LINKED_STRUCT_HEADER
+    #define LINKED_STRUCT_HEADER
+    #include "linkedlist_struct.h"
+#endif
 
 List * makelist();
 Node * createnode(int data);

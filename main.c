@@ -2,7 +2,10 @@
 #include <stdlib.h>
 #include <stddef.h>
 
-#include "linkedlist.h"
+#ifndef LINKED_HEADER
+    #define LINKED_HEADER
+    #include "linkedlist.h"
+#endif
 
 int main(void){
   List * list = makelist();
