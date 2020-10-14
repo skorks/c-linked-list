@@ -1,97 +1,82 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include "linkedlist.h"
+#include<stdio.h>
+#include<stdlib.h>
 
-struct node {
-  int data;
-  struct node * next;
-};
+struct node
+{
+    int data;
+    struct node *link;
+}*start;
 
-struct list {
-  Node * head; 
-};
+void creatlist();
+void display();
+void count();
+void insert_at_beginning();
 
-Node * createnode(int data);
-
-Node * createnode(int data){
-  Node * newNode = malloc(sizeof(Node));
-  if (!newNode) {
-    return NULL;
-  }
-  newNode->data = data;
-  newNode->next = NULL;
-  return newNode;
+int main()
+{
+    creatlist();
+    count();
+    insert_at_beginning();
 }
 
-List * makelist(){
-  List * list = malloc(sizeof(List));
-  if (!list) {
-    return NULL;
-  }
-  list->head = NULL;
-  return list;
-}
+void creatlist()
+{
+    int n, num, i;
+    struct node *ptr, *new_node;
+    start = (struct node*)malloc(sizeof(struct node));
+    printf("\nEnter the no of node you want to creat: ");
+    scanf("%d", &n);
+    printf("\nEnter the data: ");
+    scanf("%d", &num);
+    start-> data = num;
+    start-> link = NULL;
+    ptr = start;
 
-void display(List * list) {
-  Node * current = list->head;
-  if(list->head == NULL) 
-    return;
-  
-  for(; current != NULL; current = current->next) {
-    printf("%d\n", current->data);
-  }
-}
-
-void add(int data, List * list){
-  Node * current = NULL;
-  if(list->head == NULL){
-    list->head = createnode(data);
-  }
-  else {
-    current = list->head; 
-    while (current->next!=NULL){
-      current = current->next;
+    for ( i = 2; i <=n; i++)
+    {
+        new_node = (struct node*)malloc(sizeof(struct node));
+        printf("\nEnter the data: ");
+        scanf("%d", &num);
+        new_node->data=num;
+        new_node->link=NULL;
+        ptr->link=new_node;
+        ptr = ptr->link;
     }
-    current->next = createnode(data);
-  }
+    display();
+}
+void display()
+{
+    struct node *ptr;
+    ptr=start;
+    while (ptr != NULL)
+    {
+        printf("\t%d", ptr->data);
+        ptr = ptr->link;
+    }
 }
 
-void delete(int data, List * list){
-  Node * current = list->head;            
-  Node * previous = current;           
-  while(current != NULL){           
-    if(current->data == data){      
-      previous->next = current->next;
-      if(current == list->head)
-        list->head = current->next;
-      free(current);
-      return;
-    }                               
-    previous = current;             
-    current = current->next;        
-  }                                 
-}                                   
-
-void reverse(List * list){
-  Node * reversed = NULL;
-  Node * current = list->head;
-  Node * temp = NULL;
-  while(current != NULL){
-    temp = current;
-    current = current->next;
-    temp->next = reversed;
-    reversed = temp;
-  }
-  list->head = reversed;
+void count()
+{
+    int count=0;
+    struct node *ptr;
+    ptr=start;
+    while (ptr != NULL)
+    {
+        count=count+1;
+        ptr=ptr->link;
+    }
+    printf("\nThe total number of nodes are :%d",count);
+    
+}
+void insert_at_begnning()
+{
+    struct node *new_node;
+    int num;
+    printf("\nEnter new data: ");
+    scanf("%d", &num);
+    new_node->data=num;
+    new_node->link=start;
+    start=new_node;
+    display();
 }
 
-void destroy(List * list){
-  Node * current = list->head;
-  Node * next = current;
-  while(current != NULL){
-    next = current->next;
-    free(current);
-    current = next;
-  }
-  free(list);
-}
