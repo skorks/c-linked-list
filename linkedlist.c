@@ -84,7 +84,18 @@ void reverse(List * list){
   }
   list->head = reversed;
 }
-
+//Reversing the entire list by changing the direction of link from forward to backward using two pointers
+void reverse_using_two_pointers(List *list){
+    Node *previous = NULL;
+    while (list->head)
+    {
+        Node *next_node = list->head->next; //points to second node in list
+        list->head->next = previous;//at initial making head as NULL
+        previous = list->head;//changing the nextpointer direction as to point backward node 
+        list->head = next_node; //moving forward by next node
+    }
+    list->head=previous;
+}
 void destroy(List * list){
   Node * current = list->head;
   Node * next = current;

@@ -19,7 +19,10 @@ int main(void){
   delete(20, list);
   display(list);
   reverse(list);
-  printf("Reversed: ");
+  printf("Reversed: using three pointers. \n");
+  display(list);
+  reverse_using_two_pointers(list);
+  printf("Reversed: using to pointers. \n");
   display(list);
   destroy(list);
   return 0;
